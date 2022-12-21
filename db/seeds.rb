@@ -51,10 +51,10 @@ u32 = User.create({ username: "majboy", password: "123123123123",  email: Faker:
 puts "---------------------- Seeding artists..."
 
 #* the artists in the database
-a1 = Artist.create({ name: 'Adele', image: "/artist-images/adele.jpg", genre: "Pop"})
-a2 = Artist.create({ name: 'John Legend', image: "/artist-images/john_legend.jpg", genre: "Pop"})
-a3 = Artist.create({ name: 'Lil Uzi Vert', image: "/artist-images/lil-uzi-vert.jpg", genre: "Rap"})
-a4 = Artist.create({ name: 'Alicia Keys', image: "/artist-images/alicia_keys.jpg", genre: "R&B"})
+a1 = Artist.create({ name: "Adele", image: "/artist-images/adele.jpg", genre: "Pop"})
+a2 = Artist.create({ name: "John Legend", image: "/artist-images/john_legend.jpg", genre: "Pop"})
+a3 = Artist.create({ name: "Lil Uzi Vert", image: "/artist-images/lil-uzi-vert.jpg", genre: "Rap"})
+a4 = Artist.create({ name: "Alicia Keys", image: "/artist-images/alicia_keys.jpg", genre: "R&B"})
 
 
 

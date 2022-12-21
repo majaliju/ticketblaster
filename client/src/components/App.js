@@ -1,8 +1,7 @@
 import '../../src/App.css';
 import ArtistsDisplay from './ArtistsDisplay';
 import ConcertsDisplay from './ConcertsDisplay';
-import VenuesDisplay from './VenuesDisplay';
-import GenreDisplay from './GenreDisplay';
+
 import Login from './Login';
 import SignUp from './SignUp';
 import NotFound from './NotFound';
@@ -12,8 +11,6 @@ import { useState, useEffect } from 'react';
 import UsersPage from './UsersPage';
 import EachArtistCard from './EachArtistCard';
 import EachConcertCard from './EachConcertCard';
-import EachVenueCard from './EachVenueCard';
-import EachGenreCard from './EachGenreCard';
 import CreatePost from './CreatePost';
 import EditPost from './EditPost';
 import EachUser from './EachUser';
@@ -25,8 +22,6 @@ function App() {
   const [cookies, setCookies] = useState([]);
 
   const [searchTerm, setSearchTerm] = useState('');
-  const [genres, setGenres] = useState([]);
-  const [venues, setVenues] = useState([]);
   const [artists, setArtists] = useState([]);
   const [concerts, setConcerts] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -45,21 +40,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch('/venues')
-      .then((r) => r.json())
-      .then((info) => setVenues(info));
-  }, []);
-
-  useEffect(() => {
     fetch('/concerts')
       .then((r) => r.json())
       .then((info) => setConcerts(info));
-  }, []);
-
-  useEffect(() => {
-    fetch('/genres')
-      .then((r) => r.json())
-      .then((info) => setGenres(info));
   }, []);
 
   useEffect(() => {
@@ -151,7 +134,6 @@ function App() {
           element={
             <ArtistsDisplay
               artists={artists}
-              genres={genres}
               user={user}
               posts={posts}
               setPosts={setPosts}
@@ -183,8 +165,6 @@ function App() {
               concerts={concerts}
               artists={artists}
               posts={posts}
-              genres={genres}
-              venues={venues}
               user={user}
               searchTerm={searchTerm}
               setSearchTerm={setSearchTerm}
@@ -203,50 +183,7 @@ function App() {
             />
           }
         />
-        <Route
-          path='/venues'
-          element={
-            <VenuesDisplay
-              venues={venues}
-              user={user}
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-            />
-          }
-        />
-        <Route
-          path='/venues/:id'
-          element={
-            <EachVenueCard
-              venues={venues}
-              user={user}
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-            />
-          }
-        />
-        <Route
-          path='/genres'
-          element={
-            <GenreDisplay
-              genres={genres}
-              user={user}
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-            />
-          }
-        />
-        <Route
-          path='/genres/:id'
-          element={
-            <EachGenreCard
-              genres={genres}
-              user={user}
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-            />
-          }
-        />
+
         <Route
           path='/users/:id'
           element={

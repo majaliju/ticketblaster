@@ -11,4 +11,9 @@ class ApplicationController < ActionController::API
     cookies[:user_id] = session[:user_id]
     render json: { cookies: cookies.to_hash }
   end
+
+  def show_artists
+    artists = Artist.all
+    render json: artists
+  end
 end
