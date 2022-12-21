@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
-  resources :users
-  resources :posts
+## for commits
+
   resources :concerts
   resources :artists
   # Routing logic: fallback requests for React Router.
