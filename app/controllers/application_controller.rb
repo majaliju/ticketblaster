@@ -12,8 +12,4 @@ class ApplicationController < ActionController::API
     render json: { cookies: cookies.to_hash }
   end
 
-  def show_artists
-    artists = Artist.all
-    render json: artists
-  end
 end
